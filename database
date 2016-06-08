@@ -16,7 +16,7 @@ public class database{
 
 function Consulta($tabela;$coluna = null;$valor = null){
   ////Consulta em tabela retorna 1 ou N registros
-  if($id){
+  if($valor){
   $consulta = $pdo->query("select * from $tabela where $coluna = $valor");
   }else{
   $consulta = $pdo->query("select * from $tabela");
@@ -30,6 +30,21 @@ function Consulta($tabela;$coluna = null;$valor = null){
     $deletar = $pdo->query("delete * from $tabela where id = $id");
     $deletar->execute();
     
+  }
+  
+  function InseriDados($tabela;$coluna;$valor,$retonaId = false){
+      for($a=0;count($valor)>$a;$a++){
+           $valor[$a] = "'".$valor[$a]."'";
+      }
+      $coluna = implode(",",$coluna);
+      $inserir = $pdo->query("insert into $tabela($colunas)values($valor)");
+      $inserir->execute();
+      
+      if(isset($retonaId)){
+        return $pdo->lastInsertId();
+      }
+      
+  
   }
 }
 
