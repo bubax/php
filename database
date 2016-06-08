@@ -1,4 +1,13 @@
 <?php
+//Consultar todas tabelas ou coluna espcifica
+//deletar 1 ou N valores
+//update de 1 ou N registros por colunas
+//retorna Ultimo Id
+//cria consulta especifica
+// Em Desenvolvimento
+
+
+
 //criado por adriano buba
 
 private $pdo;
