@@ -1,0 +1,27 @@
+<?php
+//criado por adriano buba
+
+private $pdo;
+
+public class database{
+
+function Consulta($tabela;$coluna = null;$valor = null){
+  ////Consulta em tabela retorna 1 ou N registros
+  if($id){
+  $consulta = $pdo->query("select * from $tabela where $coluna = $valor");
+  }else{
+  $consulta = $pdo->query("select * from $tabela");
+  }
+  $consulta->execute();
+  return $consulta->fetchAll();
+  }
+  
+  
+  function DeletarUnico($tabela,$id){
+    $deletar = $pdo->query("delete * from $tabela where id = $id");
+    $deletar->execute();
+    
+  }
+}
+
+?>
